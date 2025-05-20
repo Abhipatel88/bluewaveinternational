@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueWave International - Import Export Company</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary: #0a4d92;
+            --secondary: #1e88e5;
+            --light: #ecf0f1;
+            --dark: #0a3d62;
+            --accent: #00a8ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Social Media Top Bar */
+        .social-top-bar {
+            background-color: var(--dark);
+            padding: 8px 0;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+
+        .contact-info-top {
+            color: white;
+            font-size: 14px;
+        }
+
+        .contact-info-top i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 20px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero .btn {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Founder Section */
+        .founder {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+
+        .founder-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .founder-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .founder-info h3 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .founder-position {
+            font-size: 18px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .founder-details {
+            background-color: rgba(30, 136, 229, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .founder-details p {
+            margin-bottom: 5px;
+        }
+
+        .founder-bio {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .founder-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .founder-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .founder-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Product Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalFadeIn 0.5s;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #777;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .product-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+
+        .product-detail-image {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-detail-info {
+            flex: 1.5;
+            min-width: 300px;
+        }
+
+        .product-detail-info h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .product-category {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .product-specs {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .spec-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .spec-label {
+            font-weight: bold;
+            width: 120px;
+            color: var(--primary);
+        }
+
+        .product-description, .product-features {
+            margin-bottom: 20px;
+        }
+
+        .product-description h3, .product-features h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .product-features ul {
+            padding-left: 20px;
+        }
+
+        .product-features li {
+            margin-bottom: 5px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        /* Products Section */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .category-tab {
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .category-tab:hover, .category-tab.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+        }
+
+        /* Product image classes */
+        .water-bottle-1 {
+            background-image: url('https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .water-bottle-2 {
+            background-image: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .rice {
+            background-image: url('https://images.unsplash.com/photo-1586201375761-83865001e8ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .citrus {
+            background-image: url('https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .solvents {
+            background-image: url('https://images.unsplash.com/photo-1616069093413-173b61f65365?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .caustic-soda {
+            background-image: url('https://images.unsplash.com/photo-1581093196277-9f608bb3d4b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .led-panels {
+            background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .solar-panels {
+            background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .cotton {
+            background-image: url('https://images.unsplash.com/photo-1605618313023-d8b0af2f1f09?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .silk {
+            background-image: url('https://images.unsplash.com/photo-1589891685391-c1140da1a829?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+        .product-info .btn {
+            margin-top: 15px;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+
+        .map-container {
+            height: 300px;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            /* Fix for social top bar on mobile */
+            .social-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .contact-info-top {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .contact-info-top span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .ml-3 {
+                margin-left: 0;
+            }
+
+            /* Improve founder section on mobile */
+            .founder-image {
+                margin: 0 auto;
+                max-width: 300px;
+            }
+
+            .founder-content {
+                justify-content: center;
+            }
+
+            .founder-info {
+                text-align: center;
+            }
+
+            .founder-social {
+                justify-content: center;
+            }
+
+            /* Improve hero section on mobile */
+            .hero {
+                height: auto;
+                min-height: 60vh;
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .hero .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Social Media Top Bar -->
+    <div class="social-top-bar">
+        <div class="container">
+            <div class="social-container">
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="contact-info-top">
+                    <span><i class="fas fa-envelope"></i>&nbsp;info@bluewaveinternational.com</span>
+                    <span class="ml-3"><i class="fas fa-phone"></i>&nbsp;+91 9876543210</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Blue<span>Wave</span> International</a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#founder">Founder</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-hero">Welcome to BlueWave International</h1>
+                <p class="animate-hero-delay">We specialize in supplying high-quality products across various industries globally. With strong logistics and reliable service, we ensure smooth delivery and satisfaction.</p>
+                <a href="#products" class="btn animate-hero-delay-2">Explore Our Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Your Trusted Global Trade Partner</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About BlueWave International">
+                </div>
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>BlueWave International is a leading import-export company based in Surat, Gujarat, India. We deal in a wide range of products including Water Bottles, Agricultural Products, Industrial Chemicals, and Consumer Electronics.</p>
+                    <p>Our mission is to build long-term business relationships through integrity, quality, and timely delivery.</p>
+                    <p>We serve clients in Asia, Europe, Africa, and the Americas with a dedication to excellence and customer satisfaction.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="founder">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Founder</h2>
+                <p>Visionary Leadership</p>
+            </div>
+            <div class="founder-content">
+                <div class="founder-image">
+                    <img src="WhatsApp Image 2025-05-20 at 20.22.33_d1499ca1.jpg" alt="Uday Dabhi - Founder">
+                </div>
+                <div class="founder-info">
+                    <h3>Uday Dabhi</h3>
+                    <p class="founder-position">Founder & CEO</p>
+                    <div class="founder-details">
+                        <p><strong>Age:</strong> 22 years</p>
+                        <p><strong>From:</strong> Bardoli, Surat, Gujarat, India</p>
+                    </div>
+                    <p class="founder-bio">Uday Dabhi is a young entrepreneur with a vision to revolutionize the import-export industry. At just 22 years of age, he has established BlueWave International as a trusted name in global trade.</p>
+                    <p>With a keen understanding of international markets and a passion for quality products, Uday has successfully built a network of reliable suppliers and satisfied customers across multiple countries.</p>
+                    <p>His commitment to excellence, ethical business practices, and customer satisfaction has been the driving force behind the company's rapid growth and success.</p>
+                    <div class="founder-social">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>High-Quality Products for Global Markets</p>
+            </div>
+            <div class="category-tabs">
+                <div class="category-tab active" data-category="all">All Products</div>
+                <div class="category-tab" data-category="water">Water Bottles</div>
+                <div class="category-tab" data-category="agricultural">Agricultural</div>
+                <div class="category-tab" data-category="chemicals">Industrial Chemicals</div>
+                <div class="category-tab" data-category="electronics">Electronics</div>
+                <div class="category-tab" data-category="textiles">Textiles</div>
+            </div>
+            <div class="products-grid">
+                <!-- Featured Water Bottle Product -->
+                <div class="product-card" data-category="water" data-id="water-bottle-1">
+                    <div class="product-image water-bottle-1"></div>
+                    <div class="product-info">
+                        <h3>Premium Water Bottle</h3>
+                        <p><strong>Category:</strong> Water Bottles</p>
+                        <p><strong>Exported To:</strong> Global Markets</p>
+                        <p><strong>MOQ:</strong> 1,000 Units</p>
+                        <p>High-quality stainless steel water bottles with customizable branding.</p>
+                        <button type="button" class="btn view-details" data-product="water-bottle-1">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="water" data-id="water-bottle-2">
+                    <div class="product-image water-bottle-2"></div>
+                    <div class="product-info">
+                        <h3>Glass Water Bottles</h3>
+                        <p><strong>Category:</strong> Water Bottles</p>
+                        <p><strong>Exported To:</strong> Europe, North America</p>
+                        <p><strong>MOQ:</strong> 5,000 Units</p>
+                        <p>Eco-friendly glass water bottles with silicone protective sleeve.</p>
+                        <button type="button" class="btn view-details" data-product="water-bottle-2">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Agricultural Products -->
+                <div class="product-card" data-category="agricultural" data-id="rice">
+                    <div class="product-image rice"></div>
+                    <div class="product-info">
+                        <h3>Premium Rice</h3>
+                        <p><strong>Category:</strong> Agricultural Products</p>
+                        <p><strong>Exported To:</strong> Middle East, Europe</p>
+                        <p><strong>MOQ:</strong> 20 Tons</p>
+                        <p>High-quality Basmati and Jasmine rice varieties from premium sources.</p>
+                        <button type="button" class="btn view-details" data-product="rice">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="agricultural" data-id="citrus">
+                    <div class="product-image citrus"></div>
+                    <div class="product-info">
+                        <h3>Fresh Citrus Fruits</h3>
+                        <p><strong>Category:</strong> Agricultural Products</p>
+                        <p><strong>Exported To:</strong> Europe, Russia</p>
+                        <p><strong>MOQ:</strong> 10 Tons</p>
+                        <p>Fresh oranges, lemons, and grapefruits sourced from certified farms.</p>
+                        <button type="button" class="btn view-details" data-product="citrus">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Industrial Chemicals -->
+                <div class="product-card" data-category="chemicals" data-id="solvents">
+                    <div class="product-image solvents"></div>
+                    <div class="product-info">
+                        <h3>Industrial Solvents</h3>
+                        <p><strong>Category:</strong> Industrial Chemicals</p>
+                        <p><strong>Exported To:</strong> Asia, Africa</p>
+                        <p><strong>MOQ:</strong> 5,000 Liters</p>
+                        <p>High-grade industrial solvents for manufacturing and industrial applications.</p>
+                        <button type="button" class="btn view-details" data-product="solvents">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="chemicals" data-id="caustic-soda">
+                    <div class="product-image caustic-soda"></div>
+                    <div class="product-info">
+                        <h3>Caustic Soda</h3>
+                        <p><strong>Category:</strong> Industrial Chemicals</p>
+                        <p><strong>Exported To:</strong> GCC, Africa</p>
+                        <p><strong>MOQ:</strong> 20 Tons</p>
+                        <p>High purity caustic soda flakes and pearls for industrial use.</p>
+                        <button type="button" class="btn view-details" data-product="caustic-soda">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Electronics -->
+                <div class="product-card" data-category="electronics" data-id="led-panels">
+                    <div class="product-image led-panels"></div>
+                    <div class="product-info">
+                        <h3>LED Display Panels</h3>
+                        <p><strong>Category:</strong> Electronics</p>
+                        <p><strong>Exported To:</strong> Europe, Middle East</p>
+                        <p><strong>MOQ:</strong> 100 Units</p>
+                        <p>High-resolution LED display panels for commercial and advertising use.</p>
+                        <button type="button" class="btn view-details" data-product="led-panels">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="electronics" data-id="solar-panels">
+                    <div class="product-image solar-panels"></div>
+                    <div class="product-info">
+                        <h3>Solar Panels</h3>
+                        <p><strong>Category:</strong> Electronics</p>
+                        <p><strong>Exported To:</strong> Africa, South Asia</p>
+                        <p><strong>MOQ:</strong> 50 Units</p>
+                        <p>High-efficiency solar panels with long warranty periods.</p>
+                        <button type="button" class="btn view-details" data-product="solar-panels">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Textiles -->
+                <div class="product-card" data-category="textiles" data-id="cotton">
+                    <div class="product-image cotton"></div>
+                    <div class="product-info">
+                        <h3>Organic Cotton</h3>
+                        <p><strong>Category:</strong> Textiles</p>
+                        <p><strong>Exported To:</strong> Europe, UAE</p>
+                        <p><strong>MOQ:</strong> 5 Tons</p>
+                        <p>Premium quality cotton for garments and textile manufacturing.</p>
+                        <button type="button" class="btn view-details" data-product="cotton">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="textiles" data-id="silk">
+                    <div class="product-image silk"></div>
+                    <div class="product-info">
+                        <h3>Silk Fabrics</h3>
+                        <p><strong>Category:</strong> Textiles</p>
+                        <p><strong>Exported To:</strong> Europe, North America</p>
+                        <p><strong>MOQ:</strong> 1,000 Meters</p>
+                        <p>Luxurious silk fabrics in various patterns and colors.</p>
+                        <button type="button" class="btn view-details" data-product="silk">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-detail-container">
+                <div class="product-detail-image">
+                    <img id="modalProductImage" src="" alt="Product Image">
+                </div>
+                <div class="product-detail-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <p id="modalProductCategory" class="product-category"></p>
+                    <div class="product-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Exported To:</span>
+                            <span id="modalProductExport" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Minimum Order:</span>
+                            <span id="modalProductMOQ" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Availability:</span>
+                            <span id="modalProductAvailability" class="spec-value">In Stock</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <h3>Product Description</h3>
+                        <p id="modalProductDescription"></p>
+                    </div>
+                    <div class="product-features">
+                        <h3>Key Features</h3>
+                        <ul id="modalProductFeatures">
+                        </ul>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#contact" class="btn btn-primary">Request Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Ask Questions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Our Services & Advantages</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certified Suppliers</h3>
+                    <p>We work only with verified and certified suppliers to ensure product quality and compliance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Global Shipping</h3>
+                    <p>Comprehensive shipping solutions with tracking and insurance for your peace of mind.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Custom Packaging</h3>
+                    <p>Tailored packaging and labeling services to meet your specific requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Strong partnerships in over 10 countries ensuring smooth trade operations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Timely Delivery</h3>
+                    <p>We commit to delivery schedules and keep you informed throughout the process.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Transparent Process</h3>
+                    <p>Clear communication and transparency in every step of the business relationship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get In Touch For Business Inquiries</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Inquiry Form</h3>
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Select Product</label>
+                            <select id="product" name="product" required>
+                                <option value="">-- Select a Product --</option>
+                                <option value="Premium Rice">Premium Rice</option>
+                                <option value="Fresh Citrus Fruits">Fresh Citrus Fruits</option>
+                                <option value="Industrial Solvents">Industrial Solvents</option>
+                                <option value="Caustic Soda">Caustic Soda</option>
+                                <option value="LED Display Panels">LED Display Panels</option>
+                                <option value="Solar Panels">Solar Panels</option>
+                                <option value="Organic Cotton">Organic Cotton</option>
+                                <option value="Silk Fabrics">Silk Fabrics</option>
+                                <option value="Agricultural Machinery">Agricultural Machinery</option>
+                                <option value="Construction Equipment">Construction Equipment</option>
+                                <option value="Other">Other (Please specify in message)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" id="quantity" name="quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Inquiry</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Our Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Business Bay, Dubai, United Arab Emirates</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+971 4 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@globaltradepartners.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+971 50 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1785070651066!2d55.28246999999999!3d25.186687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682def25f457%3A0x3dd4c4097970950e!2sBusiness%20Bay%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1716294000000!5m2!1sen!2sin"
+                            allowfullscreen=""
+                            title="BlueWave International Office Location in Business Bay, Dubai">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BlueWave International</h3>
+                    <p>Your trusted partner for international trade. We connect businesses globally with high-quality products and reliable service.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#founder">Founder</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Product Categories</h3>
+                    <ul>
+                        <li><a href="#products">Water Bottles</a></li>
+                        <li><a href="#products">Agricultural Products</a></li>
+                        <li><a href="#products">Industrial Chemicals</a></li>
+                        <li><a href="#products">Electronics</a></li>
+                        <li><a href="#products">Textiles</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bardoli, Surat, Gujarat, India</p>
+                    <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                    <p><i class="fas fa-envelope"></i> info@bluewaveinternational.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BlueWave International. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a nav link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Product Category Tabs
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            const productCards = document.querySelectorAll('.product-card');
+
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    const category = tab.getAttribute('data-category');
+
+                    // Show/hide products based on category
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Product Modal
+            const modal = document.getElementById('productModal');
+            const closeModal = document.querySelector('.close-modal');
+            const viewDetailsButtons = document.querySelectorAll('.view-details');
+
+            // Product data
+            const productData = {
+                'water-bottle-1': {
+                    title: 'Premium Water Bottle',
+                    category: 'Water Bottles',
+                    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    export: 'Global Markets',
+                    moq: '1,000 Units',
+                    description: 'Our premium stainless steel water bottles are designed for durability and style. Made from high-quality 18/8 food-grade stainless steel, these bottles are perfect for keeping your beverages at the desired temperature for hours.',
+                    features: [
+                        'Double-wall vacuum insulation',
+                        'Keeps drinks cold for 24 hours and hot for 12 hours',
+                        'BPA-free and eco-friendly',
+                        'Available in various sizes (350ml, 500ml, 750ml, 1L)',
+                        'Customizable with your brand logo and colors',
+                        'Leak-proof design with secure cap'
+                    ]
+                },
+                'water-bottle-2': {
+                    title: 'Glass Water Bottles',
+                    category: 'Water Bottles',
+                    image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    export: 'Europe, North America',
+                    moq: '5,000 Units',
+                    description: 'Our eco-friendly glass water bottles combine elegance with functionality. Made from high-quality borosilicate glass, these bottles are perfect for those who prefer a pure taste without any metallic or plastic aftertaste.',
+                    features: [
+                        'Made from durable borosilicate glass',
+                        'Protective silicone sleeve for grip and protection',
+                        'BPA-free and eco-friendly',
+                        'Available in various sizes (350ml, 500ml, 750ml)',
+                        'Dishwasher safe',
+                        'Wide mouth for easy cleaning and filling'
+                    ]
+                },
+                'rice': {
+                    title: 'Premium Rice',
+                    category: 'Agricultural Products',
+                    image: 'https://images.unsplash.com/photo-1586201375761-83865001e8ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    export: 'Middle East, Europe',
+                    moq: '20 Tons',
+                    description: 'Our premium rice varieties are sourced from the finest farms and undergo strict quality control to ensure the best taste and texture. We offer a range of rice varieties to suit different culinary preferences.',
+                    features: [
+                        'Basmati, Jasmine, and other premium varieties',
+                        'Organically grown options available',
+                        'Consistent grain size and quality',
+                        'Vacuum-sealed packaging for freshness',
+                        'Available in bulk quantities',
+                        'Competitive pricing for wholesale buyers'
+                    ]
+                },
+                // Add more product data as needed
+            };
+
+            // Open modal when clicking View Details
+            viewDetailsButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-product');
+                    const product = productData[productId] || {
+                        title: button.closest('.product-card').querySelector('h3').textContent,
+                        category: button.closest('.product-card').querySelector('p:nth-child(2)').textContent.replace('Category:', '').trim(),
+                        image: button.closest('.product-card').querySelector('.product-image').style.backgroundImage.replace('url("', '').replace('")', ''),
+                        export: button.closest('.product-card').querySelector('p:nth-child(3)').textContent.replace('Exported To:', '').trim(),
+                        moq: button.closest('.product-card').querySelector('p:nth-child(4)').textContent.replace('MOQ:', '').trim(),
+                        description: button.closest('.product-card').querySelector('p:nth-child(5)').textContent,
+                        features: ['Premium quality', 'Competitive pricing', 'Reliable delivery', 'Custom packaging available']
+                    };
+
+                    // Populate modal with product data
+                    document.getElementById('modalProductTitle').textContent = product.title;
+                    document.getElementById('modalProductCategory').textContent = product.category;
+                    document.getElementById('modalProductImage').src = product.image;
+                    document.getElementById('modalProductExport').textContent = product.export;
+                    document.getElementById('modalProductMOQ').textContent = product.moq;
+                    document.getElementById('modalProductDescription').textContent = product.description;
+
+                    // Clear and populate features list
+                    const featuresList = document.getElementById('modalProductFeatures');
+                    featuresList.innerHTML = '';
+                    product.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresList.appendChild(li);
+                    });
+
+                    // Show modal
+                    modal.style.display = 'block';
+                    setTimeout(() => {
+                        modal.classList.add('show');
+                    }, 10);
+                });
+            });
+
+            // Close modal when clicking X
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            // GSAP Animations
+            if (typeof gsap !== 'undefined') {
+                // Hero animations
+                gsap.to('.animate-hero', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+
+                gsap.to('.animate-hero-delay', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: 0.3,
+                    ease: 'power3.out'
+                });
+
+                gsap.to('.animate-hero-delay-2', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: 0.6,
+                    ease: 'power3.out'
+                });
+
+                // ScrollTrigger animations
+                if (typeof ScrollTrigger !== 'undefined') {
+                    // Animate sections on scroll
+                    gsap.utils.toArray('section').forEach(section => {
+                        gsap.from(section.querySelectorAll('.section-title, .about-content, .founder-content, .product-card, .service-card, .contact-container'), {
+                            y: 50,
+                            opacity: 0,
+                            duration: 1,
+                            stagger: 0.2,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 80%',
+                                toggleActions: 'play none none none'
+                            }
+                        });
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
